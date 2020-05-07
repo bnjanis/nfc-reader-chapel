@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SearchNim">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/gradient">
+
+        <EditText
+            android:layout_width="260dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/gradient"
+            android:hint="@string/nim"
+            android:textColorHint="@color/white"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:id="@+id/searchNim"
+            android:inputType="text"
+            android:autofillHints="" />
+
+        <Button
+            android:layout_width="100dp"
+            android:layout_height="50dp"
+            android:textColor="@color/white"
+            android:id="@+id/searchBtn"
+            android:text="@string/search"
+            android:layout_margin="10dp"
+            android:layout_marginEnd="17dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/button_main_disabled"/>
+
+    </RelativeLayout>
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:visibility="gone"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient"
+        android:visibility="gone">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</RelativeLayout>

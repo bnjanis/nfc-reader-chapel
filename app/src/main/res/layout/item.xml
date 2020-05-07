@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/gradient">
+
+    <TextView
+        android:id="@+id/NIM"
+        android:padding="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:text="@string/nim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/NamaLengkap"
+        android:paddingTop="5dp"
+        android:paddingBottom="10dp"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:text="@string/nama"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>
