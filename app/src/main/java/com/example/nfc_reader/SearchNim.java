@@ -8,6 +8,7 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,6 +29,8 @@ public class SearchNim extends AppCompatActivity {
     private Adapter adapter;
     private ApiInterface apiInterface;
     ProgressBar progressBar;
+    TextView search;
+    String[] item;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,14 +43,14 @@ public class SearchNim extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
 
-        fetchUsers(""); //without keyword
+        fetchUsers("student", ""); //without keyword
 
 
     }
 
-    public void fetchUsers(String key) {
+    public void fetchUsers(String type, String key) {
         apiInterface = ApiClient.getApiClient().create(ApiInterface.class);
-        Call<List<Student>> call = apiInterface.getUsers(key);
+        Call<List<Student>> call = apiInterface.getUsers(type, key);
 
         call.enqueue(new Callback<List<Student>>() {
             @Override
@@ -57,6 +60,8 @@ public class SearchNim extends AppCompatActivity {
                 adapter  = new Adapter(student, SearchNim.this);
                 recyclerView.setAdapter(adapter);
                 adapter.notifyDataSetChanged();
+
+
             }
 
             @Override
@@ -83,13 +88,13 @@ public class SearchNim extends AppCompatActivity {
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                fetchUsers(query);
+                fetchUsers("student", query);
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String newText) {
-                fetchUsers(newText);
+                fetchUsers("student", newText);
                 return false;
             }
         });

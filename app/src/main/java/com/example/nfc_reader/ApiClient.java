@@ -8,19 +8,19 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
-    public static final String BASE_URL = "https://192.168.1.10/db_skripsi/";
+    public static final String BASE_URL = "http://10.218.79.113/db_skripsi/";
     public static Retrofit retrofit;
 
 
 
     public static Retrofit getApiClient(){
 
+             Gson gson = new GsonBuilder()
+                .setLenient()
+                .create();
+
         if (retrofit == null)
         {
-            Gson gson = new GsonBuilder()
-                    .setLenient()
-                    .create();
-
 
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
